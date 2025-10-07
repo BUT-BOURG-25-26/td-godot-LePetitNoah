@@ -1,35 +1,27 @@
-extends Node3D
+extends CharacterBody3D
+
+class_name Enemy
 
 var player : Player
 var move_speed : float = 3
-
-var movement : Vector3
 
 func _ready() -> void:
 	player = get_tree().get_first_node_in_group("player")
 	
 func _physics_process(delta: float) -> void:
-	movement_func()
-	movement *= move_speed * delta
-	if movement != Vector3.ZERO:
-		global_position += Vector3(movement.x, 0.0, movement.y)
-	return
+	var look_at_player = player.global_position
+	look_at_player.y = global_position.y
+	look_at(look_at_player)
 	
-func movement_func():
-	if position.x < player.position.x:
-		movement.x = 1
-	elif position.x > player.position.x:
-		movement.x = -1
-	else :
-		movement.x = 0
-		
-	if position.z < player.position.z:
-		movement.y = 1
-	elif position.z > player.position.z:
-		movement.y = -1
-	else :
-		movement.y = 0
+	var direction = player.global_position - global_position
+	direction = direction.normalized()
+	velocity = direction * move_speed
+	velocity.y = get_gravity().y
+	move_and_slide()
 	
-	movement = movement.normalized()
-	print(movement)
+	for i in range(get_slide_collision_count()):
+		var collision = get_slide_collision(i)
+		if collision.get_collider() is Player:
+			player.take_damage(1)
+			queue_free()
 	return
