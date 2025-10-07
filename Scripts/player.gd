@@ -1,3 +1,5 @@
+class_name Player
+
 extends Node3D
 var healthbar
 @export var move_speed:float = 5
