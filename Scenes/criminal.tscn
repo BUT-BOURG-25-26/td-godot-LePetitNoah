@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://deeg8ash1shgy"]
+
+[ext_resource type="PackedScene" uid="uid://8am3wr6bqfhx" path="res://Assets/KennyAssets/Model/characterMedium.fbx" id="1_g0px7"]
+[ext_resource type="Material" uid="uid://bhp0b050r0i7d" path="res://Assets/KennyAssets/Skins/Materials/M_criminal.tres" id="2_0slfm"]
+
+[node name="characterMedium" instance=ExtResource("1_g0px7")]
+
+[node name="characterMedium" parent="Root/Skeleton3D" index="0"]
+surface_material_override/0 = ExtResource("2_0slfm")

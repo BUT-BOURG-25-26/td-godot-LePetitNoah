@@ -5,6 +5,8 @@ class_name Enemy
 var player : Player
 var move_speed : float = 3
 
+@onready var animation_tree : AnimationTree = $characterMedium/AnimationTree
+
 func _ready() -> void:
 	player = get_tree().get_first_node_in_group("player")
 	
@@ -16,6 +18,9 @@ func _physics_process(delta: float) -> void:
 	var direction = player.global_position - global_position
 	direction = direction.normalized()
 	velocity = direction * move_speed
+	
+	animation_tree.set("parameters/conditions/isRunning", true)
+	
 	velocity.y = get_gravity().y
 	move_and_slide()
 	

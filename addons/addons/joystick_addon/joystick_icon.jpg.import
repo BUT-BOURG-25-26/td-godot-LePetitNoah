@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cm6vkq6e4sqy5"
-path="res://.godot/imported/skaterFemaleA.png-65c7ff315dfc4653339aa8a7da020e17.ctex"
+uid="uid://db6nwm4k50eho"
+path="res://.godot/imported/joystick_icon.jpg-2bb1669a486e5de98c87ce2bfda00353.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://KennyAssets/Skins/skaterFemaleA.png"
-dest_files=["res://.godot/imported/skaterFemaleA.png-65c7ff315dfc4653339aa8a7da020e17.ctex"]
+source_file="res://addons/addons/joystick_addon/joystick_icon.jpg"
+dest_files=["res://.godot/imported/joystick_icon.jpg-2bb1669a486e5de98c87ce2bfda00353.ctex"]
 
 [params]
 

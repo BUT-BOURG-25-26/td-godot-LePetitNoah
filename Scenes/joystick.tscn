@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://cjho5td68pshk"]
+
+[node name="Joystick" type="Node2D"]
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="."]

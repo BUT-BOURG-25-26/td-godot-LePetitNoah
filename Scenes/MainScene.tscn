@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://dm6f2e680tf4q"]
+[gd_scene load_steps=15 format=3 uid="uid://dm6f2e680tf4q"]
 
-[ext_resource type="Script" uid="uid://clvhl5qru2byq" path="res://Scenes/main_scene.gd" id="1_7rqgy"]
+[ext_resource type="Script" uid="uid://clvhl5qru2byq" path="res://Scripts/main_scene.gd" id="1_7rqgy"]
 [ext_resource type="PackedScene" uid="uid://bw0dhumjpcqmi" path="res://Scenes/player.tscn" id="1_hpc76"]
 [ext_resource type="PackedScene" uid="uid://mxwtals6wko0" path="res://Scenes/EnemySpawner.tscn" id="2_tr2i4"]
 [ext_resource type="PackedScene" uid="uid://rjtfylk3mlxi" path="res://Scenes/GameOver.tscn" id="3_nhkr4"]
+[ext_resource type="Script" uid="uid://ee4ohmo3ydt8" path="res://Scripts/camera_3d.gd" id="4_qxria"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hpc76"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -17,14 +18,23 @@ background_mode = 2
 sky = SubResource("Sky_tr2i4")
 tonemap_mode = 2
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_cihdc"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qxria"]
+albedo_color = Color(0, 0.356863, 0, 1)
 
-[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_hpc76"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_cihdc"]
+material = SubResource("StandardMaterial3D_qxria")
+size = Vector2(4, 4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qxria"]
+size = Vector3(40, 0.1, 40)
 
 [sub_resource type="LabelSettings" id="LabelSettings_tr2i4"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_tr2i4"]
 viewport_path = NodePath("Camera3D/SubViewport")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_y4jh7"]
+size = Vector3(40, 10, 0.1)
 
 [node name="MainScene" type="Node3D"]
 script = ExtResource("1_7rqgy")
@@ -33,7 +43,7 @@ script = ExtResource("1_7rqgy")
 environment = SubResource("Environment_nhkr4")
 
 [node name="Player" parent="." instance=ExtResource("1_hpc76")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0431051, 0.0704724, 8.21429)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.07, 0)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 
@@ -45,13 +55,14 @@ mesh = SubResource("PlaneMesh_cihdc")
 skeleton = NodePath("../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
-shape = SubResource("WorldBoundaryShape3D_hpc76")
+shape = SubResource("BoxShape3D_qxria")
 
 [node name="EnemySpawner" parent="." instance=ExtResource("2_tr2i4")]
 
 [node name="Camera3D" type="Camera3D" parent="." groups=["camera"]]
-transform = Transform3D(1, 0, 0, 0, 0.737737, 0.675088, 0, -0.675088, 0.737737, 0, 8.41632, 12.7734)
+transform = Transform3D(1, 0, 0, 0, 0.737737, 0.675088, 0, -0.675088, 0.737737, 0, 8, 8)
+script = ExtResource("4_qxria")
+offset = Vector3(0, 8, 8)
 
 [node name="SubViewport" type="SubViewport" parent="Camera3D"]
 transparent_bg = true
@@ -70,3 +81,31 @@ texture = SubResource("ViewportTexture_tr2i4")
 
 [node name="GameOver" parent="." instance=ExtResource("3_nhkr4")]
 visible = false
+
+[node name="wall1" type="StaticBody3D" parent="."]
+collision_layer = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="wall1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 20)
+shape = SubResource("BoxShape3D_y4jh7")
+
+[node name="wall2" type="StaticBody3D" parent="."]
+collision_layer = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="wall2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, -20)
+shape = SubResource("BoxShape3D_y4jh7")
+
+[node name="wall3" type="StaticBody3D" parent="."]
+collision_layer = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="wall3"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 20, 5, 0)
+shape = SubResource("BoxShape3D_y4jh7")
+
+[node name="wall4" type="StaticBody3D" parent="."]
+collision_layer = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="wall4"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -20, 5, 0)
+shape = SubResource("BoxShape3D_y4jh7")

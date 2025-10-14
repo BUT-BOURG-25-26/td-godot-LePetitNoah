@@ -9,6 +9,8 @@ var healthbar
 @export var vfx_scene: PackedScene
 @export var game_over_scene: PackedScene
 
+@onready var animation_tree : AnimationTree = $characterMedium/AnimationTree
+
 var camera
 var screen_pos
 var from
@@ -30,15 +32,26 @@ func _ready() -> void:
 	#Input.mouse_mode = Input.MOUSE_MODE_CAPTURED Pour une vue FPS
 	camera = get_tree().get_first_node_in_group("camera")
 
+@warning_ignore("unused_parameter")
 func _process(delta:float) -> void:
 	return
 
+@warning_ignore("unused_parameter")
 func _physics_process(delta: float) -> void:
 	var move_inputs = read_move_inputs()
-	move_inputs = global_transform.basis * move_inputs
 	# move_inputs.y = 0.0  Pour une vue FPS
-	velocity.x = move_inputs.x * move_speed
-	velocity.z = move_inputs.z * move_speed
+	#velocity.x = move_inputs.x * move_speed
+	#velocity.z = move_inputs.z * move_speed
+	move_inputs *= move_speed
+	velocity = move_inputs
+	
+	animation_tree.set("parameters/conditions/isIdle", move_inputs == Vector3.ZERO)
+	animation_tree.set("parameters/conditions/isRunning", move_inputs != Vector3.ZERO)
+	if velocity != Vector3.ZERO:
+		var look_at_point = global_position + (move_inputs * 5.0)
+		look_at(look_at_point)
+	if !is_on_floor():
+		velocity.y = get_gravity().y
 	move_and_slide()
 	attack()
 	return
@@ -70,7 +83,7 @@ func attack():
 		#DebugDraw3D.draw_line(from, to, Color.AQUA, 5)
 		
 		space_state = get_world_3d().direct_space_state
-		query = PhysicsRayQueryParameters3D.create(from, to)
+		query = PhysicsRayQueryParameters3D.create(from, to, 1)
 		
 		result = space_state.intersect_ray(query)
 		

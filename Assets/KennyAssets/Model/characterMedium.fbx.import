@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bau0okrtahfci"
-path="res://.godot/imported/idle.fbx-ac8cae08746dbc55125bf9548b0582c8.scn"
+uid="uid://8am3wr6bqfhx"
+path="res://.godot/imported/characterMedium.fbx-df747ca4b4f30e303edbcdbd4e507bb9.scn"
 
 [deps]
 
-source_file="res://KennyAssets/Animations/idle.fbx"
-dest_files=["res://.godot/imported/idle.fbx-ac8cae08746dbc55125bf9548b0582c8.scn"]
+source_file="res://Assets/KennyAssets/Model/characterMedium.fbx"
+dest_files=["res://.godot/imported/characterMedium.fbx-df747ca4b4f30e303edbcdbd4e507bb9.scn"]
 
 [params]
 

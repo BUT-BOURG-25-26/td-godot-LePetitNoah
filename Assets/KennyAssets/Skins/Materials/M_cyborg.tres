@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://hqa2t3wb2fxy"]
+
+[ext_resource type="Texture2D" uid="uid://dfawk61oqbgua" path="res://Assets/KennyAssets/Skins/cyborgFemaleA.png" id="1_pg1ft"]
+
+[resource]
+albedo_texture = ExtResource("1_pg1ft")

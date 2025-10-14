@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dfawk61oqbgua"
-path="res://.godot/imported/cyborgFemaleA.png-8a9b23a811f8c7906760d2adf6f3d2f0.ctex"
+uid="uid://c7kkgkaodxlo2"
+path="res://.godot/imported/skaterMaleA.svg-1465b1d6db5870cb88e70a1399bb5845.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://KennyAssets/Skins/cyborgFemaleA.png"
-dest_files=["res://.godot/imported/cyborgFemaleA.png-8a9b23a811f8c7906760d2adf6f3d2f0.ctex"]
+source_file="res://Assets/KennyAssets/Skins/Source/skaterMaleA.svg"
+dest_files=["res://.godot/imported/skaterMaleA.svg-1465b1d6db5870cb88e70a1399bb5845.ctex"]
 
 [params]
 
@@ -32,3 +32,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false
