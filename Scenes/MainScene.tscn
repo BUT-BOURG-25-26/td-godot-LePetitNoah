@@ -1,7 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://dm6f2e680tf4q"]
+[gd_scene load_steps=12 format=3 uid="uid://dm6f2e680tf4q"]
 
+[ext_resource type="Script" uid="uid://clvhl5qru2byq" path="res://Scenes/main_scene.gd" id="1_7rqgy"]
 [ext_resource type="PackedScene" uid="uid://bw0dhumjpcqmi" path="res://Scenes/player.tscn" id="1_hpc76"]
 [ext_resource type="PackedScene" uid="uid://mxwtals6wko0" path="res://Scenes/EnemySpawner.tscn" id="2_tr2i4"]
+[ext_resource type="PackedScene" uid="uid://rjtfylk3mlxi" path="res://Scenes/GameOver.tscn" id="3_nhkr4"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hpc76"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -25,6 +27,7 @@ tonemap_mode = 2
 viewport_path = NodePath("Camera3D/SubViewport")
 
 [node name="MainScene" type="Node3D"]
+script = ExtResource("1_7rqgy")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_nhkr4")
@@ -64,3 +67,6 @@ vertical_alignment = 1
 [node name="Sprite3D" type="Sprite3D" parent="Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.901559, -1.43823)
 texture = SubResource("ViewportTexture_tr2i4")
+
+[node name="GameOver" parent="." instance=ExtResource("3_nhkr4")]
+visible = false

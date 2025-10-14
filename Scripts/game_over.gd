@@ -12,8 +12,8 @@ func _ready() -> void:
 	
 func _rejouer():
 	print("Partie relancée")
-	get_tree().reload_current_scene()
+	GameManager.restart()
 
 func _quitter():
 	print("Partie quittée")
-	get_tree().quit()
+	GameManager.quit()

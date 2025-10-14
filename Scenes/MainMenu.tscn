@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://wcvf1lqssfd5"]
 
-[ext_resource type="Script" uid="uid://tef3er1lw6ux" path="res://Scenes/main_menu.gd" id="1_tt5f1"]
+[ext_resource type="Script" uid="uid://tef3er1lw6ux" path="res://Textures/main_menu.gd" id="1_tt5f1"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -12,6 +12,7 @@ grow_vertical = 2
 script = ExtResource("1_tt5f1")
 
 [node name="jouer" type="Button" parent="."]
+layout_mode = 0
 offset_left = 448.0
 offset_top = 278.0
 offset_right = 704.0
@@ -20,6 +21,7 @@ theme_override_font_sizes/font_size = 24
 text = "JOUER"
 
 [node name="quitter" type="Button" parent="."]
+layout_mode = 0
 offset_left = 448.0
 offset_top = 372.0
 offset_right = 704.0

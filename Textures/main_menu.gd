@@ -14,8 +14,8 @@ func _ready() -> void:
 	
 func _jouer():
 	print("Partie lancée")
-	get_tree().change_scene_to_packed(start_game)
+	GameManager.start()
 
 func _quitter():
 	print("Partie quittée")
-	get_tree().quit()
+	GameManager.quit()

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://71hqy5c1rsue" path="res://Scripts/game_over.gd" id="1_m5628"]
 
-[node name="GameOver" type="Control"]
+[node name="GameOver" type="Control" groups=["game_over"]]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

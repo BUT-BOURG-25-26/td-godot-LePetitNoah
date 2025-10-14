@@ -20,5 +20,5 @@ func _on_shockwave_finished() -> void:
 func _on_body_entered(body: Node3D) -> void:
 	if body is Enemy :
 		var player : Player = get_tree().get_first_node_in_group("player")
-		player.cmpt_kills += 1
+		GameManager.increase_score()
 		body.queue_free()

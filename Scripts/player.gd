@@ -5,7 +5,6 @@ class_name Player
 var healthbar
 @export var move_speed:float = 5
 @export var health: int = 3
-@export var cmpt_kills: int = 0
 
 @export var vfx_scene: PackedScene
 @export var game_over_scene: PackedScene
@@ -85,6 +84,5 @@ func take_damage(damage):
 	health -= damage
 	healthbar.update(health)
 	if health <= 0:
-		var game_over = game_over_scene.instantiate()
-		add_child(game_over)
+		GameManager.display_game_over()
 	return 
