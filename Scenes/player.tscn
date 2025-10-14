@@ -115,3 +115,8 @@ texture = SubResource("ViewportTexture_cvnsp")
 libraries = {
 &"": SubResource("AnimationLibrary_fkybt")
 }
+
+[node name="CameraPivot" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.81312, 0)
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot"]
