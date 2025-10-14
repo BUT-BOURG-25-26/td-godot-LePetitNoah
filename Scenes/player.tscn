@@ -35,7 +35,7 @@ corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_cvnsp"]
-viewport_path = NodePath("RigidBody3D/SubViewport")
+viewport_path = NodePath("SubViewport")
 
 [sub_resource type="Animation" id="Animation_vgqql"]
 length = 0.001
@@ -74,25 +74,24 @@ _data = {
 &"life_change": SubResource("Animation_6t5aa")
 }
 
-[node name="Player" type="Node3D"]
+[node name="Player" type="CharacterBody3D" groups=["player"]]
 script = ExtResource("1_cvnsp")
 
-[node name="RigidBody3D" type="CharacterBody3D" parent="."]
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-
-[node name="CSGCylinder3D" type="CSGCylinder3D" parent="RigidBody3D"]
 material_override = ExtResource("1_v0iea")
 use_collision = true
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_v0iea")
 
-[node name="SubViewport" type="SubViewport" parent="RigidBody3D"]
+[node name="SubViewport" type="SubViewport" parent="."]
 disable_3d = true
 transparent_bg = true
 size = Vector2i(100, 25)
 
-[node name="HealthBar" type="ProgressBar" parent="RigidBody3D/SubViewport"]
+[node name="HealthBar" type="ProgressBar" parent="SubViewport"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -107,12 +106,17 @@ value = 3.0
 show_percentage = false
 script = ExtResource("3_6t5aa")
 
-[node name="Sprite3D" type="Sprite3D" parent="RigidBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.18181, 0)
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.18181, 0)
 billboard = 1
 texture = SubResource("ViewportTexture_cvnsp")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="RigidBody3D/Sprite3D"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite3D"]
 libraries = {
 &"": SubResource("AnimationLibrary_fkybt")
 }
+
+[node name="CameraPivot" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.81312, 0)
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot"]
