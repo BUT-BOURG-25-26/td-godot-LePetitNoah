@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://bw0dhumjpcqmi"]
+[gd_scene load_steps=12 format=3 uid="uid://bw0dhumjpcqmi"]
 
 [ext_resource type="Script" uid="uid://gtney2ofwoov" path="res://Scripts/player.gd" id="1_cvnsp"]
 [ext_resource type="Material" uid="uid://b33q5gc7fqod0" path="res://Materials/M_Player.tres" id="1_v0iea"]
 [ext_resource type="Script" uid="uid://ctgjgv6de0fyo" path="res://Scripts/health_bar.gd" id="3_6t5aa"]
+[ext_resource type="PackedScene" uid="uid://d1ceuge37ite" path="res://Scenes/vfx_impact.tscn" id="4_vgqql"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_v0iea"]
 
@@ -76,6 +77,7 @@ _data = {
 
 [node name="Player" type="CharacterBody3D" groups=["player"]]
 script = ExtResource("1_cvnsp")
+vfx_scene = ExtResource("4_vgqql")
 
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -115,8 +117,3 @@ texture = SubResource("ViewportTexture_cvnsp")
 libraries = {
 &"": SubResource("AnimationLibrary_fkybt")
 }
-
-[node name="CameraPivot" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.81312, 0)
-
-[node name="Camera3D" type="Camera3D" parent="CameraPivot"]

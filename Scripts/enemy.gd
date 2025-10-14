@@ -26,3 +26,4 @@ func _physics_process(delta: float) -> void:
 			print("ba alors tu dpop pas")
 			queue_free()
 	return
+	
