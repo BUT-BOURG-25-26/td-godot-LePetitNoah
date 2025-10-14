@@ -8,6 +8,7 @@ var healthbar
 @export var cmpt_kills: int = 0
 
 @export var vfx_scene: PackedScene
+@export var game_over_scene: PackedScene
 
 var camera
 var screen_pos
@@ -84,5 +85,6 @@ func take_damage(damage):
 	health -= damage
 	healthbar.update(health)
 	if health <= 0:
-		get_tree().reload_current_scene()
+		var game_over = game_over_scene.instantiate()
+		add_child(game_over)
 	return 

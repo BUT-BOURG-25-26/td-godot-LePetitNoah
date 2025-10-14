@@ -23,7 +23,6 @@ func _physics_process(delta: float) -> void:
 		var collision = get_slide_collision(i)
 		if collision.get_collider() is Player:
 			player.take_damage(1)
-			print("ba alors tu dpop pas")
 			queue_free()
 	return
 	

@@ -6,11 +6,13 @@ var player : Player
 var score : int
 var score_label : Label
 
-func _ready() -> void:
+func init() -> void :
 	player = get_tree().get_first_node_in_group("player")
 	score_label = get_tree().get_first_node_in_group("score")
 
 func _process(delta: float) -> void:
-	if player:
+	if player && score_label:
 		score = player.cmpt_kills
 		score_label.text = "Nombre de kills : " + str(score)
+	else :
+		init()

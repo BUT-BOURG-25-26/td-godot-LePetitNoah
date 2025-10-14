@@ -8,7 +8,6 @@ script = ExtResource("1_4b1db")
 enemy_scene = ExtResource("2_4l853")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 1.5
 autostart = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
