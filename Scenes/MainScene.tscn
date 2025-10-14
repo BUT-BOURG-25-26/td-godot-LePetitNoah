@@ -27,8 +27,8 @@ environment = SubResource("Environment_nhkr4")
 [node name="Player" parent="." instance=ExtResource("1_hpc76")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0431051, 0.254399, 8.21429)
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.832061, 0.554685, 0, -0.554685, 0.832061, 0, 3.12405, 10.9635)
+[node name="Camera3D" type="Camera3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 0.840604, 0.54165, 0, -0.54165, 0.840604, 0.00764558, 1.93687, -0.0502691)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 

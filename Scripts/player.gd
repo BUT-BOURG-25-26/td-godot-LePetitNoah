@@ -30,4 +30,6 @@ func read_move_inputs() -> Vector3:
 func take_damage(damage):
 	health -= 1
 	healthbar.update(health)
+	if health <= 0:
+		get_tree().reload_current_scene()
 	return 
