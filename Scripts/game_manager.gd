@@ -4,8 +4,8 @@ var score_label : Label
 var score = 0
 
 @onready var start_game: PackedScene = preload("res://Scenes/MainScene.tscn")
+@onready var game_over: PackedScene = preload("res://Scenes/GameOver.tscn")
 @export var main_menu: PackedScene = preload	("res://Scenes/MainMenu.tscn")
-@export var game_over: PackedScene = preload("res://Scenes/GameOver.tscn")
 
 func init() -> void :
 	score_label = get_tree().get_first_node_in_group("score")

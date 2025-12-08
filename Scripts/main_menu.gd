@@ -3,8 +3,6 @@ extends Control
 var jouer_bouton : Button
 var quitter_bouton : Button
 
-@onready var start_game: PackedScene = preload("res://Scenes/MainScene.tscn")
-
 func _ready() -> void:
 	jouer_bouton = $jouer
 	quitter_bouton = $quitter
